@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Animated, Dimensions, View, ViewPropTypes } from 'react-native'
+import { Animated, Dimensions, View } from 'react-native'
 
 const styles = require('./styles')
 
-import { bool, func, number, string } from 'prop-types'
+import { any, bool, func, number, string } from 'prop-types'
 
 const window = Dimensions.get('window')
 
@@ -40,7 +40,7 @@ const IPropTypes = {
 	renderScrollComponent: func,
 	renderStickyHeader: func,
 	stickyHeaderHeight: number,
-	contentContainerStyle: ViewPropTypes.style,
+	contentContainerStyle: any,
 	outputScaleValue: number
 }
 
@@ -429,7 +429,7 @@ ParallaxScrollView.defaultProps = {
 	contentBackgroundColor: '#fff',
 	fadeOutForeground: true,
 	onChangeHeaderVisibility: () => { },
-	renderScrollComponent: props => <Animated.ScrollView {...props} />,
+	renderScrollComponent: props => <Animated.ScrollView bounces={false} {...props} />,
 	renderBackground: renderEmpty,
 	renderContentBackground: noRender,
 	renderParallaxHeader: renderEmpty, // Deprecated (will be removed in 0.18.0)
